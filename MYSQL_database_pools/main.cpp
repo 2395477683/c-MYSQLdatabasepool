@@ -30,6 +30,7 @@ int query() {
 	return 0;
 }
 
+//测试非连接池
 void op1(int begin, int end)
 {
 	for (int i = begin; i < end; ++i)
@@ -43,6 +44,7 @@ void op1(int begin, int end)
 	}
 }
 
+//测试连接池
 void op2(Connpool* pool, int begin, int end)
 {
 	for (int i = begin; i < end; ++i)
@@ -54,6 +56,8 @@ void op2(Connpool* pool, int begin, int end)
 		std::cout << i << std::endl;
 	}
 }
+
+//测试非连接池,单线程，用时
 void test1() {
 	std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 	op1(0, 5000);
@@ -61,6 +65,7 @@ void test1() {
 	auto length = end - begin;
 	std::cout << "非连接池,单线程，用时：" << length.count() / 1000000 << "毫秒" << std::endl;
 }
+//测试连接池,单线程，用时
 void test2() {
 	Connpool* pool = Connpool::getConnpool();
 	std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
@@ -69,6 +74,7 @@ void test2() {
 	auto length = end - begin;
 	std::cout << "连接池,单线程，用时：" << length.count() / 1000000 << "毫秒" << std::endl;
 }
+//测试非连接池,多线程，用时
 void test3() {
 	Mysqlconn conn;
 	conn.connect("root", "macan344", "test", "localhost");
@@ -87,6 +93,7 @@ void test3() {
 	auto length = end - begin;
 	std::cout << "非连接池,多线程，用时：" << length.count() / 1000000 << "毫秒" << std::endl;
 }
+//测试连接池,多线程，用时
 void test4() {
 	Connpool* pool = Connpool::getConnpool();
 	std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
