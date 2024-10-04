@@ -1,4 +1,4 @@
-# MYSQLdatabasepool新人初学数据库连接池的实例
+# MYSQLdatabasepool
 
 ## 参考链接
 https://www.bilibili.com/video/BV1Fr4y1s7w4/?spm_id_from=333.337.search-card.all.click 
