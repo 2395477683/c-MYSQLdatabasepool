@@ -17,7 +17,7 @@ https://www.bilibili.com/video/BV1Fr4y1s7w4/?spm_id_from=333.337.search-card.all
     user为你的数据库用户账号
     pass为你的数据库用户密码
     dbname为你的数据库使用的数据库名
-**不要忘记更改main中测试函数中连接数据库函数的参数
+** 不要忘记更改main中测试函数中连接数据库函数的参数
 
 ## 疑问
 如不能运行或报错请在议题中提出！
